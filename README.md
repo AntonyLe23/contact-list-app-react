@@ -31,7 +31,7 @@ Ensure you have the following installed on your development machine:
 
 1. Clone the repository to your local machine:
    ```sh
-   git clone git@github.com:AntonyLe23/contact-list-app-react.git
+   git clone https://github.com/AntonyLe23/contact-list-app-react.git
    ```
    
 2. Install dependencies and start the project:
