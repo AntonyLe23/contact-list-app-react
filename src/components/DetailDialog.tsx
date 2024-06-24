@@ -31,6 +31,14 @@ export const DetailDialog = ({open, handleClose, contactDetail}: DetailDialogPro
                   {contactDetail.email}
                 </ListItem>
                 <ListItem>
+                  <InputLabel>{'Age: '}</InputLabel>
+                  {contactDetail.age}
+                </ListItem>
+                <ListItem>
+                  <InputLabel>{'Country: '}</InputLabel>
+                  {contactDetail.country}
+                </ListItem>
+                <ListItem>
                   <InputLabel>{'Active: '}</InputLabel>
                   <Checkbox checked={contactDetail.active}/>
                 </ListItem>

@@ -8,8 +8,9 @@ interface NewContactProps {
   handleSubmitContact: (data: ContactItem) => void
 }
 
-export const NewContact = ({open, handleClose, handleSubmitContact}: NewContactProps) => {
-  const {register, handleSubmit, reset} = useForm();
+export const NewContactDialog = ({open, handleClose, handleSubmitContact}: NewContactProps) => {
+  const {register, handleSubmit, reset, formState: {errors}} = useForm();
+
   return (
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>New Contact Form</DialogTitle>
@@ -18,7 +19,9 @@ export const NewContact = ({open, handleClose, handleSubmitContact}: NewContactP
             const newContact = {
               name: data.name,
               phone: data.phone,
-              email: data.email
+              email: data.email,
+              age: 23,
+              country: "VN"
             }
             handleSubmitContact(newContact);
             handleClose();
@@ -26,7 +29,8 @@ export const NewContact = ({open, handleClose, handleSubmitContact}: NewContactP
           })}>
             <FormControl>
               <FormGroup>
-                <input {...register("name", {required: true})} placeholder={"Name"}/>
+                <input {...register("name", {required: "Name is required!"})} placeholder={"Name"}/>
+                {errors.name && <span style={{color: 'red', fontSize: '1rem'}}>{errors.name?.message}</span>}
               </FormGroup>
               <FormGroup>
                 <input {...register("phone")} placeholder={"Phone"}/>

@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from "react";
 import {AgGridReact} from "ag-grid-react";
 import {DetailDialog} from "./DetailDialog.tsx";
-import {NewContact} from "./NewContact.tsx";
+import {NewContactDialog} from "./NewContactDialog.tsx";
 import {Button} from "@mui/material";
 
 export const ContactGridComponent = () => {
@@ -11,10 +11,10 @@ export const ContactGridComponent = () => {
 
   const [rowData, setRowData] = useState(
       [
-        {name: "User 01", phone: "03424234", email: "user01@mail.com", active: true},
-        {name: "User 02", phone: "32132131", email: "user02.mail@mail.com", active: true},
-        {name: "User 03", phone: "31231221", email: "user03.mail@mail.com", active: false},
-        {name: "Phat Le", phone: "01123123", email: "phat.mail@mail.com", active: true},
+        {name: "User 01", phone: "03424234", email: "user01@mail.com", active: true, age: 20, country: "VN"},
+        {name: "User 02", phone: "32132131", email: "user02.mail@mail.com", active: true, age: 25, country: "CA"},
+        {name: "User 03", phone: "31231221", email: "user03.mail@mail.com", active: false, age: 23, country: "FR"},
+        {name: "Phat Le", phone: "01123123", email: "phat.mail@mail.com", active: true, age: 30, country: "US"},
       ]
   )
 
@@ -60,7 +60,7 @@ export const ContactGridComponent = () => {
             handleClose={() => setOpenDetailDialog(false)}
             contactDetail={selectedContact}
         />
-        <NewContact
+        <NewContactDialog
             open={openNewContactForm}
             handleClose={() => setOpenNewContactForm(false)}
             handleSubmitContact={handleNewContact}
